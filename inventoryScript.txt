@@ -1,0 +1,2 @@
+[miogruppo]
+host1 ansible_ssh_host=152.67.88.102 ansible_user=opc ansible_ssh_private_key_file=/home/user/.ssh/ssh-key-2021-10-13.key
