@@ -17,6 +17,15 @@ host1 ansible_ssh_host=(IPaddress) ansible_user=(user) ansible_ssh_private_key_f
 ## connecting test    
 `ansible -m ping`(nomegruppo)   
 
+## creating Playbook    
+create a folder for playbooks:    
+`cd /etc/ansible`   
+`mkdir playbook`    
+
+write a playbook:   
+`cd playbook`   
+nano playbook1.yaml
+
 
 
 
