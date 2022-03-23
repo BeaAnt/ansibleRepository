@@ -24,7 +24,12 @@ create a folder for playbooks:
 
 write a playbook:   
 `cd playbook`   
-nano playbook1.yaml
+nano nomeplaybook.yaml    
+
+**playbook1.yaml**
+Ping    
+
+**playbook2.yaml**    
 
 
 
