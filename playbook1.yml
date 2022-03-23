@@ -1,0 +1,5 @@
+- hosts: all
+  user: ansible_service
+  tasks:
+    - name: Ping all hosts
+      ping:
