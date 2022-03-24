@@ -1,0 +1,82 @@
+---
+- hosts: elk
+  
+  become: yes 
+  vars:
+    elk_image_name: "sebp/elk"
+  tasks:
+
+  # Installs Docker
+ 
+  - name: Update and upgrade apt packages
+    apt:
+      upgrade: yes
+      update_cache: yes
+
+  - name: install prerequisites
+    apt:
+      name:
+        - apt-transport-https
+        - ca-certificates 
+        - curl 
+        - gnupg-agent
+        - software-properties-common
+      update_cache: yes
+
+  - name: add apt-key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+
+  - name: add docker repo
+    apt_repository:
+      repo: deb https://download.docker.com/linux/ubuntu eoan stable
+
+  - name: install docker 
+    apt:
+      name: 
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+      update_cache: yes
+
+  # Installs Docker SDK
+
+  - name: install python package manager
+    apt:
+      name: python3-pip
+  
+  - name: install python sdk
+    pip:
+      name:
+        - docker
+        - docker-compose
+
+#Pulls and Runs image
+
+  - name: pull image elk
+    docker_image:
+      name: "{{ elk_image_name }}"
+      source: pull
+  
+  #vm.max_map_count=242144 is only for this session
+  - name: Extend max count 
+    command: "sysctl -w vm.max_map_count=262144"
+      
+    
+  - name: Run Container
+    docker_container:
+      name: "elk"
+      image: "{{ elk_image_name }}"
+      state: started
+      detach: yes
+      ports:
+        - "5601:5601"
+        - "9201:9200"
+        - "5044:5044"
+    
+  - name: Get Container Details
+    command: "docker ps -a"
+    register: result
+    
+  - name: result Container Details
+    debug: msg="{{result.stdout}}"
