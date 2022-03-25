@@ -9,7 +9,7 @@ A repository created to learn Ansible: working with inventory,writing play and p
 `cd /etc/ansible`   
 `sudo nano hosts`   
 
-add a group of nodes for manage in the script:    
+add a group of nodes to manage in the script:    
 
 [nomegruppo]    
 host1 ansible_ssh_host=(IPaddress) ansible_user=(user) ansible_ssh_private_key_file=(path_key)    
@@ -30,9 +30,9 @@ nano nomeplaybook.yaml
 `cd playbook`   
 `ansible-playbook`(nomeplaybook.yaml)   
 
-**playbook1.yaml** -the playbook invoke a module "ping" to connection test         
-**playbook2.yaml** -the playbook invoke a module "copy" to copy a file from the local machine to a location on the remote machine   
-**playbook3.yaml** -the playbook create to install docker and elk
+**playbook1.yaml** -the playbook invoke the module "ping" to test the connection             
+**playbook2.yaml** -the playbook invoke the module "copy" to copy a file from the local machine to a location on the remote machine   
+**playbook3.yaml** -the playbook create to install docker and elk   
 
 
 
