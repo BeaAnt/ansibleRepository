@@ -1,0 +1,8 @@
+- hosts: miogruppo
+  become: yes
+  tasks:
+  - name: copy file from remote to local
+    fetch:
+     src: /home/opc/foo.conf
+     dest: /home/user/foo.conf
+     flat: yes
