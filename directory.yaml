@@ -1,0 +1,12 @@
+- hosts: miogruppo
+  become: yes
+  vars:
+  - docroot: /home/opc/corsoJava
+  tasks:
+  - name: Crea una directory
+    file:
+      path: '{{ docroot }}'
+      mode: 0644
+      state: directory
+      owner: root
+      group: root
