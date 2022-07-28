@@ -30,8 +30,8 @@ nano nomeplaybook.yaml
 `cd playbook`   
 `ansible-playbook`(nomeplaybook.yaml)   
 
-**playbook1.yaml** -the playbook invoke the module "ping" to test the connection             
-**playbook2.yaml** -the playbook invoke the module "copy" to copy a file from the local machine to a location on the remote machine   
+**ping.yaml** -the playbook invoke the module "ping" to test the connection             
+**copyfile.yaml** -the playbook invoke the module "copy" to copy a file from the local machine to a location on the remote machine   
 **playbook3.yaml** -the playbook create to install docker and elk   
 
 
