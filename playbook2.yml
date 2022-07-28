@@ -1,9 +1,0 @@
-- hosts: miogruppo
-  become: yes
-  tasks:
-  - copy:
-     src: /home/user/testo.txt
-     dest: /home/opc/foo.conf
-     owner: root
-     group: root
-     mode: 0644
