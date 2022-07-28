@@ -1,0 +1,6 @@
+- hosts: miogruppo
+  tasks:
+  - name: remove file
+    file:
+      path: /home/opc/foo.conf
+      state: absent
